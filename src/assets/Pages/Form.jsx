@@ -1,21 +1,19 @@
 import React, { createContext, useContext, useState } from "react";
 import { NotesContext } from "../../components/NotesProvider";
 function Form() {
-  const {notes,setNotes} = useContext(NotesContext)
-  const [title, setTitle] = useState([]);
-  const [desc, setDesc] = useState([]);
+  const { notes, setNotes } = useContext(NotesContext);
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
 
   const reload = (e) => {
     e.preventDefault();
-    setNotes([{...title,...desc}]);
-    // console.log(title);
-    // console.log(desc);
-    setTitle([]);
-    setDesc([]);
+    setNotes([...notes, { title, desc }]);
+    setTitle("");
+    setDesc("");
   };
   return (
     <>
-        <div className="bg-blue-300 w-1/3 p-2">
+      <div className="bg-blue-300 w-1/3 p-2">
         <form
           action=""
           className="flex flex-col gap-2"
@@ -32,7 +30,6 @@ function Form() {
               setTitle(e.target.value);
             }}
             value={title}
-         
           />
           <textarea
             name=""
@@ -48,7 +45,6 @@ function Form() {
           <input type="submit" value="SUBMIT" className="btn btn-success" />
         </form>
       </div>
-
     </>
   );
 }
