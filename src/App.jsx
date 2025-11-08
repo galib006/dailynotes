@@ -1,10 +1,13 @@
 import "./App.css";
 import Form from "./assets/Pages/Form";
 import Notes from "./assets/Pages/Notes";
+import NotesProvider from "./components/NotesProvider";
+
 
 function App() {
   return (
     <>
+    <NotesProvider>
       <div className="px-5">
         <h1 className="text-center text-6xl font-bold mb-8">Daily Notes</h1>
         <div className="flex justify-between gap-2 w-full col-end-3">
@@ -12,6 +15,7 @@ function App() {
           <Notes></Notes>
         </div>
       </div>
+      </NotesProvider>
     </>
   );
 }
